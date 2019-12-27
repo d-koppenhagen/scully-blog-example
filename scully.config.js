@@ -7,5 +7,12 @@ exports.config = {
         folder: "./blog"
       }
     },
+    '/books/:isbn': {
+      'type': 'json',
+      'isbn': {
+        'url': 'https://api3.angular-buch.com/books',
+        'property': 'isbn'
+      }
+    }
   }
 };
