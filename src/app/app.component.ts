@@ -1,13 +1,18 @@
-import {IdleMonitorService} from '@scullyio/ng-lib'; 
- import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ScullyRoute, ScullyRoutesService } from '@scullyio/ng-lib';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent { 
- constructor (private idle: IdleMonitorService) { } 
+export class AppComponent implements OnInit {
+  posts$: Observable<ScullyRoute[]>;
 
-  title = 'scully-blog';
+  constructor(private srs: ScullyRoutesService) {}
+
+  ngOnInit() {
+    this.posts$ = this.srs.available$;
+  }
 }
