@@ -2,6 +2,12 @@ exports.config = {
   projectRoot: "./src/app",
   outDir: './dist/static',
   routes: {
+    '/projects/:projectId': {
+      type: 'contentFolder',
+      projectId: {
+        folder: "./projects"
+      }
+    },
     '/blog/:slug': {
       type: 'contentFolder',
       slug: {
