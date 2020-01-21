@@ -6,7 +6,7 @@ exports.config = {
       type: 'contentFolder',
       projectId: {
         folder: "./projects"
-      }
+      },
     },
     '/blog/:slug': {
       type: 'contentFolder',
