@@ -1,3 +1,5 @@
+require('./extraPlugin/skip');
+
 exports.config = {
   projectRoot: "./src/app",
   projectName: "scully-blog",
@@ -21,6 +23,7 @@ exports.config = {
         'url': 'https://api3.angular-buch.com/books',
         'property': 'isbn'
       }
-    }
+    },
+    '/secure': { type: 'skip' },
   }
 };
