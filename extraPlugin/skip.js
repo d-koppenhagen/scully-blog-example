@@ -1,15 +1,32 @@
-const { configValidator, registerPlugin } = require('@scullyio/scully');
-const { log, yellow } = require('@scullyio/scully/utils/log');
+const { registerPlugin, log, yellow } = require('@scullyio/scully');
 
-const skipPlugin = async (route, options) => {
-  /**
+/**
+ * handle routes
+ * @param {HandledRoute} route the rout configuration
+ * @param {object} config 
+ */
+function skipPlugin(route, config = {}) {
+   /**
    * I don't do anything here,
    * just return an empty array
    * as that will effectively remove the route from the list
    *
    */
   log(`Skip Route "${yellow(route)}"`);
-  return [];
-};
+  return Promise.resolve([]);
+}
 
-registerPlugin('router', 'skip', skipPlugin);
+/**
+ * optional: validate config
+ */
+const validator = async conf => [];
+
+/**
+ * register the plugin
+ */
+registerPlugin('router', 'skip', skipPlugin, validator);
+
+/**
+ * export the module
+ */
+module.exports.skipPlugin = skipPlugin;
