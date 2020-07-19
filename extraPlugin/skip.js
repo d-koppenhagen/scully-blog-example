@@ -6,7 +6,7 @@ const { registerPlugin, log, yellow } = require('@scullyio/scully');
  * @param {object} config 
  */
 function skipPlugin(route, config = {}) {
-   /**
+  /**
    * I don't do anything here,
    * just return an empty array
    * as that will effectively remove the route from the list
