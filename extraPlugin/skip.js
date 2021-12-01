@@ -3,7 +3,7 @@ const { registerPlugin, log, yellow } = require('@scullyio/scully');
 /**
  * handle routes
  * @param {HandledRoute} route the rout configuration
- * @param {object} config 
+ * @param {object} config
  */
 function skipPlugin(route, config = {}) {
   /**

@@ -1,25 +1,20 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { ScullyRoute, ScullyRoutesService } from '@scullyio/ng-lib';
-import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { map, Observable } from 'rxjs';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit {
-  posts$: Observable<ScullyRoute[]>;
+export class AppComponent {
+  links$: Observable<ScullyRoute[]> = this.scully.available$.pipe(
+    map(routeList => {
+      return routeList.filter((route: ScullyRoute) =>
+        route.route.startsWith(`/blog/`),
+      );
+    })
+  );
 
-  constructor(private srs: ScullyRoutesService) {}
-
-  ngOnInit() {
-    this.posts$ = this.srs.available$.pipe(
-      map(routeList => {
-        return routeList.filter((route: ScullyRoute) =>
-          route.route.startsWith(`/blog/`),
-        );
-      })
-    );
-  }
+  constructor(private scully: ScullyRoutesService) {}
 }

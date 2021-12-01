@@ -1,6 +1,6 @@
 <ul>
-  <li *ngFor="let post of posts$ | async">
-    <a [routerLink]="post.route">{{ post.title }}</a>
+  <li *ngFor="let link of links$ | async">
+    <a [routerLink]="link.route">{{ link.title }}</a>
   </li>
 </ul>
 

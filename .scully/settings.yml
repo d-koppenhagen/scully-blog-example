@@ -1,2 +1,11 @@
-identifier: k8h4e9eceaz4i5g8
+identifier: k9w0o00816qb8390
+appPort: 1864
+staticPort: 1668
+reloadPort: 2667
+hostName: localhost
+projectName: scully-blog
+homeFolder: /Users/dannykoppenhagen/dev/scully-blog-example
+distFolder: dist/scully-blog
+outDir: /Users/dannykoppenhagen/dev/scully-blog-example/dist/static
+handle404: ''
 allowErrorCollect: true
